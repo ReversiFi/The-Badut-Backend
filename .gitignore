@@ -1,0 +1,7 @@
+# Generating folders
+**/*node_modules
+**/dist
+
+# Local configuration files
+**/.env
+**/*.env
