@@ -10,7 +10,7 @@ const corsOptions = {
   origin: [
     "http://localhost:3000",
     "http://localhost:8000",
-    "https://reversifi-sdk.vercel.app/*"
+    "https://reversifi-sdk.vercel.app/"
   ],
 };
 
