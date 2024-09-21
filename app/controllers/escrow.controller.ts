@@ -59,7 +59,7 @@ export class EscrowController {
               const { data, error } = await supabase
               .from("escrow_factory")
               .select("*")
-              .eq("escrow_factory", address);
+              .eq("organization_wallet", address);
 
               if (error) {
                 return res.status(400).json({ message: error });
