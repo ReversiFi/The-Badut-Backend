@@ -10,6 +10,7 @@ export const EscrowRouter = () => {
   });
 
   router.post("/addEscrowFactory", escrowController.addEscrowFactory);
+  router.post("/deleteEscrowFactory", escrowController.deleteEscrowFactory);
   router.get("/getFactoryEscrow/:address", escrowController.getOrganizationEscrowFactory);
 
 

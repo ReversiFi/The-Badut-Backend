@@ -24,6 +24,26 @@ export class EscrowController {
             return res.status(500).json({ message: "Internal server error" });
         }
     }
+    deleteEscrowFactory = async(req: Request, res: Response) => {
+        try {
+            const { address } = req.body;
+
+            if (!address) {
+                return res.status(400).json({ message: "Invalid params" });
+              }
+
+              const { data, error } = await supabase
+              .from("escrow_factory")
+              .delete()
+              .eq("escrow_factory", address);
+
+              return res.status(200).json({msg: "Delete success"});
+              
+        }catch(e){
+            console.log(e);
+            return res.status(500).json({ message: "Internal server error" });
+        }
+    }
     getOrganizationEscrowFactory = async(req: Request, res: Response) => {
         try {
             const { address } = req.params;
