@@ -13,11 +13,15 @@ export class EscrowController {
             const { data, error } = await supabase
               .from("escrow_factory")
               .insert({
-                organization_address: organization_address,
+                organization_wallet: organization_address,
                 escrow_factory: escrow_factory
-              }).select("*")
+              })
+            .select("*")
 
-              console.log(data)
+              if (error) {
+                return res.status(400).json({ message: error });
+              }
+              
               return res.status(200).json({ data });
         }catch(e){
             console.log(e);
@@ -56,6 +60,10 @@ export class EscrowController {
               .from("escrow_factory")
               .select("*")
               .eq("escrow_factory", address);
+
+              if (error) {
+                return res.status(400).json({ message: error });
+              }
 
               return res.status(200).json({data});
         }catch(e){
